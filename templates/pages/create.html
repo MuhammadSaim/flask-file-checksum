@@ -1,0 +1,36 @@
+{% extends 'layouts/app.html' %}
+
+{% block title %} Create CheckSum {% endblock %}
+
+{% block content %}
+
+    <div class="row py-5">
+        <div class="col-md-8 offset-md-2 col-sm-12">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Create CheckSum
+                    </h5>
+                    <form action="{{ url_for('create_checksum') }}" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">File</label>
+                            <input class="form-control" type="file" id="formFile" name="file">
+                        </div>
+                        <div class="mb-3 float-end">
+                            <button class="btn btn-primary" type="submit">create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% if checksum %}
+            <div class="card shadow mt-3">
+                <div class="card-body">
+                    <h4 class="card-title">your CheckSum</h4>
+                    <p class="bg-primary p-3 text-white">{{ checksum }}</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
